@@ -5,25 +5,28 @@ using UnityEngine;
 
 public class PriceBehavior : MonoBehaviour
 {
+    private GameManager gameManager;
     private ObjectReferences objectReferences;
+    public int lastUpdatedYear;
     // Start is called before the first frame update
     void Start()
     {
-        objectReferences = GameObject.Find("GameManager").GetComponent<ObjectReferences>();
+        gameManager = GetComponent<GameManager>();
+        objectReferences = GetComponent<ObjectReferences>();
+        lastUpdatedYear = gameManager.year;
     }
 
     // Update is called once per frame
     void Update()
     {
-        int placeholderYear = 5;
-        int lastUpdatedYear = 4;
-        if (placeholderYear != lastUpdatedYear)
+        if (gameManager.year != lastUpdatedYear)
         {
             foreach (ResourceObject i in objectReferences.resourceObjects)
             {
-                objectReferences.resourceObjectReferences[i.resourceName].price = marketRandomizer(i.elasticity, i.price, i.basePrice);
+                objectReferences.resourceObjectReferences[i.resourceName].price = Mathf.Round(marketRandomizer(i.elasticity, i.price, i.basePrice));
+                Debug.Log(objectReferences.resourceObjectReferences[i.resourceName].price);
             }
-            lastUpdatedYear = placeholderYear;
+            lastUpdatedYear = gameManager.year;
         }
     }
     float marketRandomizer(float GoodsElasticity, float Price, float BasePrice) //elasticity should be between .01-1

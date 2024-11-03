@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac601b35e6c913419922f6f1ace0d8f, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  resourcename: Wood
-  resourcequantity: 1
+  resourceName: Wood
+  resourceQuantity: 0
+  price: 780
+  basePrice: 780
+  elasticity: 0.6
