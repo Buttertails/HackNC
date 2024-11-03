@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PurpleRedPlantScriptable
   m_EditorClassIdentifier: 
   planetName: PurpleRed
-  resourceType: 
+  resourceType: Wood

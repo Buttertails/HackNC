@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceName: Iron
   resourceQuantity: 0
+  price: 140
+  basePrice: 140
+  elasticity: 0.8
