@@ -16,7 +16,21 @@ public class Planet : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    private void OnMouseOver()
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            gameManager.selectedPlanet = this;
+        }
+    }
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            gameManager.selectedPlanet = null;
+        }
+    }
+    /*private void OnMouseOver()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -30,7 +44,7 @@ public class Planet : MonoBehaviour
             }
      
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
