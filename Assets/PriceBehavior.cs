@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    
+    private ObjectReferences objectReferences;
     // Start is called before the first frame update
     void Start()
     {
-        
+        objectReferences = GameObject.Find("GameManager").GetComponent<ObjectReferences>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        int placeholderYear = 5;
+        int lastUpdatedYear = 4;
+        if (placeholderYear != lastUpdatedYear)
+        {
+            foreach(ResourceObject i in objectReferences.resourceObjects)
+            {
+                objectReferences.resourceObjectReferences[i.resourceName].price = marketRandomizer(i.elasticity, i.price, i.basePrice);
+            }
+            lastUpdatedYear = placeholderYear;
+        }
     }
     float marketRandomizer(float GoodsElasticity, float Price, float BasePrice) //elasticity should be between .01-1
     {
