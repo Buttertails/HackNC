@@ -14,11 +14,15 @@ public class GameManager : MonoBehaviour
     public GameObject ColonyPanel;
     public GameObject DevelopmentPanel;
     public GameObject LocalMarketPanel;
+    public TextMeshProUGUI yearText;
+    private int year = 3000;
+    private int timeScale = 5;
+    private bool readyForNext = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        yearText.text = "Year: " + year;
     }
 
     // Update is called once per frame
@@ -41,6 +45,13 @@ public class GameManager : MonoBehaviour
             ColonyPanel.SetActive(false);
             DevelopmentPanel.SetActive(false);
             LocalMarketPanel.SetActive(false);
+        }
+
+        if(readyForNext)
+        {
+            readyForNext = false;
+            StartCoroutine(IncrementTime());
+            year++;
         }
     }
 
@@ -80,5 +91,11 @@ public class GameManager : MonoBehaviour
         {
             LocalMarketPanel.SetActive(false); 
         }
+    }
+    IEnumerator IncrementTime()
+    {
+        yield return new WaitForSeconds(timeScale);
+        readyForNext = true;
+        yearText.text = "Year: " + year;
     }
 }
