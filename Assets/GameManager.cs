@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject Panel;
     public GameObject ColonyPanel;
     public GameObject DevelopmentPanel;
+    public GameObject LocalMarketPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,9 @@ public class GameManager : MonoBehaviour
         else
         {
             Panel.SetActive(false);
+            ColonyPanel.SetActive(false);
+            DevelopmentPanel.SetActive(false);
+            LocalMarketPanel.SetActive(false);
         }
     }
 
@@ -45,6 +49,7 @@ public class GameManager : MonoBehaviour
         if (ColonyPanel.activeSelf == false)
         {
             ColonyPanel.SetActive(true);
+            DevelopmentPanel.SetActive(false);
         }
         else
         {
@@ -57,10 +62,23 @@ public class GameManager : MonoBehaviour
         if (DevelopmentPanel.activeSelf == false)
         {
             DevelopmentPanel.SetActive(true);
+            ColonyPanel.SetActive(false);
         }
         else
         {
             DevelopmentPanel.SetActive(false);
+        }
+    }
+
+    public void LocalMarketButton()
+    {
+        if(LocalMarketPanel.activeSelf == false)
+        {
+            LocalMarketPanel.SetActive(true);
+        }
+        else
+        {
+            LocalMarketPanel.SetActive(false); 
         }
     }
 }
