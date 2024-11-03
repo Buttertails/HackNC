@@ -6,13 +6,13 @@ public class Planet : MonoBehaviour
 {
     public GameObject PlanetPrefab;
     public PlanetObj planetObject;
+    public ResourceObject planetResource;
     public GameManager gameManager;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        //planetVal.planetName;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
