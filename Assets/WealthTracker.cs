@@ -7,10 +7,13 @@ public class WealthTracker : MonoBehaviour
 {
     private AudioSource audioSource;
     public AudioClip errorSound;
-    public int currency;
+    public float currency;
     public int iron;
     public int nitrogen;
     public int wood;
+    public ResourceObject ironResource;
+    public ResourceObject woodResource;
+    public ResourceObject nitrogenResource;
     public TextMeshProUGUI currencyText;
     public TextMeshProUGUI ironText;
     public TextMeshProUGUI nitrogenText;
@@ -29,7 +32,8 @@ public class WealthTracker : MonoBehaviour
     {
         currencyText.text = "Currency: " + currency;
         ironText.text = "Iron: " + iron;
-        nitrogenText.text = "Wood: " + wood;
+        nitrogenText.text = "Nitrogen: " + nitrogen;
+        woodText.text = "Wood: " + wood;
     }
 
     public void SellResource(string resourceType, int resourceAmount)
@@ -42,43 +46,8 @@ public class WealthTracker : MonoBehaviour
             }
             else
             {
-                iron += resourceAmount;
-            }
-        }
-        else if(resourceType == "Nitrogen")
-        {
-            if(resourceAmount > nitrogen)
-            {
-                StartCoroutine(NotEnoughResources(resourceType));
-            }
-            else
-            {
-                nitrogen += resourceAmount;
-            }
-        }
-        else if(resourceType == "Wood")
-        {
-            if(resourceAmount > wood)
-            {
-                StartCoroutine(NotEnoughResources(resourceType));
-            }
-            else
-            {
-                wood += resourceAmount;
-            }
-        }
-    }
-    public void BuyResource(string resourceType, int resourceAmount)
-    {
-        if(resourceType == "Iron")
-        {
-            if(resourceAmount > iron)
-            {
-                StartCoroutine(NotEnoughResources(resourceType));
-            }
-            else
-            {
                 iron -= resourceAmount;
+                currency += ironResource.price * resourceAmount;
             }
         }
         else if(resourceType == "Nitrogen")
@@ -90,6 +59,7 @@ public class WealthTracker : MonoBehaviour
             else
             {
                 nitrogen -= resourceAmount;
+                currency += nitrogenResource.price * resourceAmount;
             }
         }
         else if(resourceType == "Wood")
@@ -101,6 +71,46 @@ public class WealthTracker : MonoBehaviour
             else
             {
                 wood -= resourceAmount;
+                currency += woodResource.price * resourceAmount;
+            }
+        }
+    }
+    public void BuyResource(string resourceType, int resourceAmount)
+    {
+        if(resourceType == "Iron")
+        {
+            if(currency < ironResource.price)
+            {
+                StartCoroutine(NotEnoughResources(resourceType));
+            }
+            else
+            {
+                iron += resourceAmount;
+                currency -= ironResource.price * resourceAmount;
+            }
+        }
+        else if(resourceType == "Nitrogen")
+        {
+            if(currency < nitrogenResource.price)
+            {
+                StartCoroutine(NotEnoughResources(resourceType));
+            }
+            else
+            {
+                nitrogen += resourceAmount;
+                currency -= nitrogenResource.price * resourceAmount;
+            }
+        }
+        else if(resourceType == "Wood")
+        {
+            if(currency < woodResource.price)
+            {
+                StartCoroutine(NotEnoughResources(resourceType));
+            }
+            else
+            {
+                wood += resourceAmount;
+                currency -= woodResource.price * resourceAmount;
             }
         }
     }

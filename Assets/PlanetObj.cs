@@ -7,9 +7,4 @@ public class PlanetObj : ScriptableObject
 {
     public string planetName;
     public string resourceType;
-    // Start is called before the first frame update
-    private void Reset()
-    {
-        
-    }
 }
