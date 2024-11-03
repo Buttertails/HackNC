@@ -8,4 +8,7 @@ public class ResourceObject : ScriptableObject
 {
     public string resourceName;
     public int resourceQuantity;
+    public float price;
+    public float basePrice;
+    public float elasticity;
 }
