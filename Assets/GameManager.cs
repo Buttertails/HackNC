@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject ColonyPanel;
     public GameObject DevelopmentPanel;
     public GameObject LocalMarketPanel;
+    public AudioSource audioSource;
     public TextMeshProUGUI yearText;
     public int year = 3000;
     private int timeScale = 5;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         yearText.text = "Year: " + year;
     }
 
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
         {
             ColonyPanel.SetActive(true);
             DevelopmentPanel.SetActive(false);
+            audioSource.Play();
         }
         else
         {
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
         {
             DevelopmentPanel.SetActive(true);
             ColonyPanel.SetActive(false);
+            audioSource.Play();
         }
         else
         {
@@ -86,6 +90,7 @@ public class GameManager : MonoBehaviour
         if(LocalMarketPanel.activeSelf == false)
         {
             LocalMarketPanel.SetActive(true);
+            audioSource.Play();
         }
         else
         {

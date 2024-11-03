@@ -12,7 +12,8 @@ public class ObjectReferences : MonoBehaviour
     {
         foreach (ResourceObject i in resourceObjects)
         {
-            resourceObjectReferences.Add(i.resourceName, i);
+            resourceObjectReferences.Add(i.name, i);
+            Debug.Log(i.name);
             //ResourceObject resourceObject = new ResourceObject();
         }
     }
@@ -22,9 +23,10 @@ public class ObjectReferences : MonoBehaviour
     {
         
     }
-
+    /*
     public ResourceObject RetriveResourceObject(string name)
     {
+        //Debug.Log(resourceObjectReferences[name]);
         if (resourceObjectReferences.ContainsKey(name))
         {
             return resourceObjectReferences[name];
@@ -35,4 +37,5 @@ public class ObjectReferences : MonoBehaviour
         }
         //return resourceObjects;
     }
+    */
 }
