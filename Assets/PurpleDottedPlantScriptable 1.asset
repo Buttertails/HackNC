@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PurpleDottedPlantScriptable 1
   m_EditorClassIdentifier: 
   planetName: PurpleDotted
-  resourceType: 
+  resourceType: Iron

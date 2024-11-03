@@ -266,6 +266,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9945397}
   - component: {fileID: 9945398}
+  - component: {fileID: 9945399}
+  - component: {fileID: 9945400}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -307,6 +309,36 @@ MonoBehaviour:
   DevelopmentPanel: {fileID: 670683349}
   LocalMarketPanel: {fileID: 132464897}
   yearText: {fileID: 765910}
+  year: 3000
+--- !u!114 &9945399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9945396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec91be97180311d4abe40c64582209c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceObjects:
+  - {fileID: 11400000, guid: ee4c431c315c5b94bbd0167d2871f1d8, type: 2}
+  - {fileID: 11400000, guid: 0fed06edb3dce4c43a8f24e362bb72bf, type: 2}
+  - {fileID: 11400000, guid: 424134725424cf04da7151a9ab3c2129, type: 2}
+--- !u!114 &9945400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9945396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530793297858a8c47bbcc6814e138474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastUpdatedYear: 0
 --- !u!1 &34702574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,6 +2870,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2920,6 +2953,19 @@ Transform:
   - {fileID: 2079795021}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c2133836259bf45be5575d9565ca1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceship: {fileID: 568842569}
 --- !u!1 &546284451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship
       objectReference: {fileID: 0}
+    - target: {fileID: 234785980685488827, guid: 0db826db700cdc54a8a0625fd938f48c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2697887507680532154, guid: 0db826db700cdc54a8a0625fd938f48c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3208,6 +3258,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562481088}
   m_CullTransparentMesh: 1
+--- !u!1 &568842569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 234785980685488827, guid: 0db826db700cdc54a8a0625fd938f48c, type: 3}
+  m_PrefabInstance: {fileID: 559209723}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &569041124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,7 +3918,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 22.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9471,7 +9526,7 @@ Transform:
   m_GameObject: {fileID: 1661142612}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24233048, y: -0.16935596, z: 0}
+  m_LocalPosition: {x: 2, y: -0.16935596, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

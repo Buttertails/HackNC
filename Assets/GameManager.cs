@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject DevelopmentPanel;
     public GameObject LocalMarketPanel;
     public TextMeshProUGUI yearText;
-    private int year = 3000;
+    public int year = 3000;
     private int timeScale = 5;
     private bool readyForNext = true;
 

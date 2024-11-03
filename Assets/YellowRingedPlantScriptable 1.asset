@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: YellowRingedPlantScriptable 1
   m_EditorClassIdentifier: 
   planetName: YellowRinged
-  resourceType: 
+  resourceType: Nitrogen
